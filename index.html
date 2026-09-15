@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>アートデザインラボ デザインガイドライン</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --pink:#b5226f;      /* ADLピンク（プライマリ） */
+  --red:#c0136b;       /* アートレッド（強調） */
+  --green:#2cb090;     /* グリーン（サブ見出し・バッジ） */
+  --yellow:#dac127;    /* イエロー（ページタイトル・帯） */
+  --yellow2:#dad33c;   /* イエロー明（about H3） */
+  --toc-yellow:#f5e96b;/* 目次背景 */
+  --neon:#f9f566;      /* ネオンイエロー（ピンボール） */
+  --cream:#faf8f2;     /* クリームボックス */
+  --cream-bd:#f0e9d5;
+  --ink:#333;
+  --ink2:#666;
+  --ink3:#999;
+  --bd:#e3e3e3;
+  --bg:#fff;
+  --bg2:#fafafa;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;scroll-padding-top:76px;}
+body{font-family:"Noto Sans JP",sans-serif;font-weight:600;font-size:16px;line-height:1.8;color:var(--ink);background:var(--bg);}
+a{color:var(--pink);}
+img{max-width:100%;}
+
+/* ===== header ===== */
+.gl-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);backdrop-filter:blur(6px);border-bottom:1px solid var(--bd);}
+.gl-header-in{max-width:1160px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;gap:16px;}
+.gl-logo{font-weight:900;font-size:17px;letter-spacing:.02em;color:var(--ink);text-decoration:none;line-height:1.3;}
+.gl-logo small{display:block;font-size:11px;font-weight:700;color:var(--pink);letter-spacing:.12em;}
+.gl-ver{margin-left:auto;font-size:11px;font-weight:700;color:#fff;background:var(--ink);border-radius:999px;padding:4px 14px;white-space:nowrap;}
+
+/* ===== hero ===== */
+.hero{text-align:center;padding:72px 24px 48px;position:relative;overflow:hidden;}
+.hero h1{font-size:46px;font-weight:900;line-height:1.25;letter-spacing:.01em;
+  background-image:linear-gradient(100deg,#dac127 0%,#f6e96b 25%,#e8a90f 50%,#f6e96b 75%,#dac127 100%);
+  background-size:250% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  animation:ygrad 5s linear infinite;}
+@keyframes ygrad{from{background-position:0% 0}to{background-position:250% 0}}
+.hero .sub{font-size:19px;font-weight:900;margin-top:10px;}
+.hero .lead{max-width:620px;margin:22px auto 0;font-size:14.5px;color:var(--ink2);text-align:left;}
+.hero .meta{margin-top:20px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap;}
+.pill{display:inline-block;background:var(--green);color:#fff;font-weight:700;font-size:12px;line-height:1.5;padding:4px 14px;border-radius:999px;}
+.pill.pink{background:var(--pink);}
+.pill.dark{background:#222;}
+@media(prefers-reduced-motion:reduce){.hero h1{animation:none;}}
+
+/* ===== layout ===== */
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px 96px;display:flex;gap:48px;align-items:flex-start;}
+.toc{position:sticky;top:76px;flex:0 0 220px;font-size:13px;line-height:1.6;padding:20px 0;}
+.toc p{font-size:12px;font-weight:700;letter-spacing:.08em;color:var(--red);margin-bottom:12px;}
+.toc a{display:block;color:var(--ink);text-decoration:none;font-weight:600;padding:6px 10px;border-left:3px solid transparent;border-radius:0 8px 8px 0;}
+.toc a:hover{background:var(--bg2);}
+.toc a.on{border-left-color:var(--pink);color:var(--pink);font-weight:900;background:#fdf3f8;}
+main{flex:1;min-width:0;}
+section{padding-top:40px;}
+section + section{margin-top:40px;border-top:1px solid #eee;}
+
+/* section titles = 本番 H2 スタイル (zz117) */
+h2.sec{font-size:26px;font-weight:900;line-height:1.4;color:var(--pink);margin:24px 0 8px;}
+h2.sec .en{display:block;font-size:12px;font-weight:900;letter-spacing:.14em;color:var(--yellow);text-transform:uppercase;margin-bottom:4px;}
+h3.sub{font-size:19px;font-weight:900;line-height:1.5;color:var(--green);margin:40px 0 12px;}
+h4.min{font-size:16px;font-weight:900;color:#222;margin:28px 0 8px;}
+p.desc{font-size:14.5px;color:var(--ink);margin:0 0 16px;}
+p.note{font-size:13px;color:var(--ink3);margin:8px 0 0;}
+.src{font-size:11.5px;color:var(--ink3);font-weight:600;}
+.src code{background:#f4f4f4;border-radius:4px;padding:1px 6px;font-family:Menlo,Monaco,monospace;font-size:10.5px;}
+
+/* principle cards */
+.grid{display:grid;gap:16px;margin:20px 0;}
+.grid.c2{grid-template-columns:repeat(2,1fr);}
+.grid.c3{grid-template-columns:repeat(3,1fr);}
+.p-card{background:#fff;border:1.5px solid var(--bd);border-radius:18px;padding:22px 22px 18px;}
+.p-card .no{font-size:24px;font-weight:900;color:var(--yellow);line-height:1;}
+.p-card h4{font-size:15.5px;font-weight:900;margin:10px 0 6px;color:var(--ink);}
+.p-card p{font-size:12.5px;line-height:1.8;color:var(--ink2);}
+
+/* color swatches */
+.sw-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:14px;margin:18px 0 6px;}
+.sw{border:1px solid var(--bd);border-radius:14px;overflow:hidden;cursor:pointer;background:#fff;transition:transform .15s;}
+.sw:hover{transform:translateY(-2px);}
+.sw .chip{height:74px;position:relative;}
+.sw .chip span{position:absolute;left:10px;bottom:8px;font-size:11px;font-weight:900;color:#fff;letter-spacing:.03em;}
+.sw .chip span.dk{color:#5a4500;}
+.sw .info{padding:9px 12px 10px;font-size:11.5px;line-height:1.55;}
+.sw .info b{display:block;font-size:12.5px;font-weight:900;}
+.sw .info code{font-family:Menlo,monospace;font-size:11px;color:var(--ink2);}
+.sw .info small{display:block;color:var(--ink3);font-size:10.5px;font-weight:600;}
+.copied{position:fixed;left:50%;bottom:28px;transform:translateX(-50%);background:#222;color:#fff;font-size:12.5px;font-weight:700;padding:8px 20px;border-radius:999px;opacity:0;pointer-events:none;transition:opacity .25s;z-index:99;}
+.copied.on{opacity:1;}
+
+/* type scale table */
+table.tbl{width:100%;border-collapse:collapse;font-size:13px;margin:14px 0;}
+table.tbl th{text-align:left;white-space:nowrap;padding:10px 14px 10px 0;border-bottom:1px solid #eee;vertical-align:top;font-weight:900;color:var(--green);font-size:12.5px;}
+table.tbl td{padding:10px 14px 10px 0;border-bottom:1px solid #eee;vertical-align:top;font-weight:600;}
+table.tbl thead th{color:var(--ink3);font-size:11px;letter-spacing:.06em;border-bottom:2px solid #ddd;}
+table.tbl code{font-family:Menlo,monospace;font-size:11.5px;background:#f4f4f4;border-radius:4px;padding:1px 5px;}
+.tbl-scroll{overflow-x:auto;}
+
+/* type specimens */
+.spec{border:1.5px dashed var(--bd);border-radius:14px;padding:22px 26px;margin:14px 0;}
+.spec .t-page{font-size:48px;font-weight:900;line-height:1.2;color:var(--yellow);text-align:center;}
+.spec .t-pagesub{font-size:20px;font-weight:900;line-height:1.4;text-align:center;margin-top:8px;}
+.spec .t-h2{font-size:24px;font-weight:900;line-height:1.4;color:var(--pink);}
+.spec .t-h3{font-size:20px;font-weight:900;line-height:1.5;color:var(--green);}
+.spec .t-body{font-size:16px;font-weight:600;line-height:1.8;}
+.spec .t-note{font-size:14px;font-weight:600;line-height:1.8;color:var(--ink3);}
+.spec .lbl{font-size:10.5px;font-weight:700;color:var(--ink3);letter-spacing:.06em;margin:18px 0 2px;}
+.spec .lbl:first-child{margin-top:0;}
+
+/* demo stage */
+.demo{background:var(--bg2);border:1px solid #eee;border-radius:14px;padding:28px;margin:14px 0 8px;text-align:center;}
+.demo.left{text-align:left;}
+pre.code{background:#f6f6f6;border:1px solid #e5e5e5;border-radius:10px;padding:16px 20px;font-family:Menlo,Monaco,monospace;font-size:11.5px;line-height:1.7;overflow-x:auto;margin:8px 0 4px;color:#444;white-space:pre;text-align:left;font-weight:400;}
+
+/* === 本番コンポーネント再現 === */
+/* adl-btn variants */
+.adl-btn{display:inline-block;text-decoration:none;padding:14px 32px;border-radius:999px;font-weight:700;font-size:14px;line-height:1.4;margin:6px 4px;transition:opacity .2s,transform .2s;border:2px solid transparent;cursor:pointer;letter-spacing:.02em;background:var(--pink);color:#fff;border-color:var(--pink);}
+.adl-btn:hover{opacity:.88;transform:translateY(-1px);}
+.adl-btn-secondary{background:var(--green);border-color:var(--green);}
+.adl-btn-yellow{background:var(--yellow);border-color:var(--yellow);}
+.adl-btn-outline{background:transparent;color:var(--pink);}
+.adl-btn-outline-green{background:transparent;color:var(--green);border-color:var(--green);}
+.adl-btn-dark{background:#222;border-color:#222;}
+.adl-btn-light{background:#fff;color:var(--ink);border-color:#ddd;}
+.adl-btn-lg{padding:18px 44px;font-size:16px;}
+.adl-btn-sm{padding:8px 20px;font-size:12px;}
+/* 段差ピル */
+.adl-detail-btn{position:relative;display:inline-block;box-sizing:border-box;background:#333;color:#fff;font-weight:900;font-size:18px;padding:16px 56px;border-radius:128px;border:2px solid #333;text-decoration:none;transition:opacity .2s;line-height:1.4;z-index:1;margin:4px 8px 12px;}
+.adl-detail-btn::after{content:"";position:absolute;z-index:-1;box-sizing:border-box;left:-2px;top:6px;width:calc(100% + 4px);height:calc(100% + 4px);background:#f8f8f8;border:2px solid #333;border-radius:128px;}
+.adl-detail-btn:hover{opacity:.75;}
+/* 送信黒ピル（contact風 独特shadow） */
+.adl-submit{display:inline-block;background:#333;color:#fff;font-weight:900;font-size:18px;padding:16px 56px;border-radius:128px;border:2px solid #333;line-height:1.4;cursor:pointer;box-shadow:-2px 6px 0 0 #f8f8f8,-2px 6px 0 2px #333;transition:background .2s,color .2s;font-family:"Noto Sans JP",sans-serif;margin:4px 8px 12px;}
+.adl-submit:hover{background:#fff;color:#333;}
+/* カード類 */
+.adl-card{background:#fff;border-radius:16px;padding:28px 32px;border:1px solid #eee;text-align:left;}
+.adl-yellow{background:var(--yellow);border-radius:24px;padding:28px;text-align:left;}
+.adl-yellow .adl-card{border:none;}
+.adl-cream{background:var(--cream);padding:18px 22px;border-radius:8px;border:1px solid var(--cream-bd);font-size:14px;line-height:2;text-align:left;}
+.adl-cream li{margin:.2em 0;list-style-position:inside;}
+/* voice card */
+.adl-voice-card{background:#fff;border:1.5px solid var(--bd);border-radius:18px;padding:26px 24px 22px;position:relative;text-align:left;max-width:340px;display:inline-block;vertical-align:top;margin:6px;}
+.adl-voice-card::before{content:"\201C";position:absolute;top:6px;left:14px;font-size:44px;line-height:1;color:var(--red);font-family:Georgia,serif;}
+.adl-voice-card p{margin:0;padding-top:18px;font-size:13.5px;line-height:1.9;}
+/* toc box */
+.adl-toc{background:var(--toc-yellow);border-radius:8px;padding:28px 36px;text-align:left;max-width:520px;margin:0 auto;}
+.adl-toc-label{font-size:13px;font-weight:700;color:var(--red);letter-spacing:.08em;margin:0 0 18px;}
+.adl-toc ol{list-style:none;counter-reset:t;font-size:15px;line-height:1.5;}
+.adl-toc li{counter-increment:t;padding:16px 0;border-bottom:1px solid rgba(0,0,0,.15);}
+.adl-toc li:first-child{padding-top:4px;}
+.adl-toc li:last-child{border-bottom:none;padding-bottom:4px;}
+.adl-toc li::before{content:counter(t) ". ";font-weight:700;margin-right:4px;}
+.adl-toc li.h3{padding-left:1.6em;font-size:13.5px;}
+.adl-toc li.h3::before{content:"└ ";counter-increment:none;}
+/* history line */
+.hist-demo{display:flex;gap:20px;align-items:stretch;justify-content:center;text-align:left;}
+.hist-year{font-size:24px;font-weight:900;color:var(--red);display:flex;flex-direction:column;align-items:center;}
+.hist-year::after{content:"";display:block;width:3px;flex:1;margin-top:12px;background:var(--red);border-radius:2px;}
+.hist-txt{font-size:13px;max-width:300px;padding-bottom:28px;}
+/* marquee */
+.mq{overflow:hidden;position:relative;border-radius:12px;background:#fff;border:1px solid #eee;padding:14px 0;}
+.mq-track{display:flex;gap:18px;width:max-content;animation:mq 18s linear infinite;}
+.mq-item{flex:0 0 auto;width:120px;height:56px;border-radius:10px;background:var(--bg2);border:1px solid var(--bd);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;color:var(--ink3);}
+@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.mq-track{animation:none;}}
+/* fade demo */
+.fade-box{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.25,.46,.45,.94),transform .9s cubic-bezier(.25,.46,.45,.94);display:inline-block;background:#fff;border:1.5px solid var(--bd);border-radius:14px;padding:18px 30px;font-weight:900;}
+.fade-box.on{opacity:1;transform:none;}
+@media(prefers-reduced-motion:reduce){.fade-box{opacity:1;transform:none;transition:none;}}
+/* pinball */
+.pin-wrap{position:relative;height:120px;border-radius:12px;background:#fff;border:1px solid #eee;overflow:hidden;}
+.pin{position:absolute;width:64px;height:64px;animation:pinmove 9s linear infinite alternate;opacity:.8;mix-blend-mode:multiply;}
+.pin svg{width:100%;height:100%;animation:pinspin 7s linear infinite;}
+@keyframes pinmove{0%{left:4%;top:8%}25%{left:70%;top:40%}50%{left:30%;top:55%}75%{left:82%;top:10%}100%{left:10%;top:45%}}
+@keyframes pinspin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.pin,.pin svg{animation:none;}}
+/* icons */
+.adl-icon{display:inline-block;width:1em;height:1em;background:currentColor;mask-position:center;-webkit-mask-position:center;mask-repeat:no-repeat;-webkit-mask-repeat:no-repeat;mask-size:contain;-webkit-mask-size:contain;vertical-align:middle;}
+.ic-mail{-webkit-mask-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z'/%3E%3C/svg%3E");}
+.ic-heart{-webkit-mask-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E");}
+.ic-add{-webkit-mask-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z'/%3E%3C/svg%3E");}
+/* do / don't */
+.dd{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0;}
+.dd .do,.dd .dont{border-radius:14px;padding:16px 20px;font-size:13px;line-height:1.8;}
+.dd .do{background:#f0faf7;border:1.5px solid var(--green);}
+.dd .dont{background:#fdf1f7;border:1.5px solid var(--pink);}
+.dd b{display:block;font-weight:900;font-size:13px;margin-bottom:6px;}
+.dd .do b{color:var(--green);}
+.dd .dont b{color:var(--pink);}
+.dd ul{padding-left:1.3em;}
+.dd li{margin:.3em 0;}
+/* timeline */
+.tl{border-left:3px solid var(--yellow);margin:20px 0 0 8px;padding-left:26px;}
+.tl-item{position:relative;padding-bottom:26px;}
+.tl-item::before{content:"";position:absolute;left:-34px;top:6px;width:13px;height:13px;border-radius:50%;background:var(--yellow);border:3px solid #fff;box-shadow:0 0 0 1.5px var(--yellow);}
+.tl-item.major::before{background:var(--pink);box-shadow:0 0 0 1.5px var(--pink);}
+.tl-date{font-size:12px;font-weight:900;color:var(--red);letter-spacing:.04em;}
+.tl-item h4{font-size:15px;font-weight:900;margin:2px 0 4px;}
+.tl-item p{font-size:12.5px;color:var(--ink2);line-height:1.8;}
+.tl-item .zz{font-family:Menlo,monospace;font-size:10.5px;color:var(--ink3);background:#f4f4f4;border-radius:4px;padding:1px 6px;}
+/* rules list */
+.rule{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid #eee;font-size:13.5px;line-height:1.8;}
+.rule .no{flex:0 0 34px;height:34px;border-radius:50%;background:var(--pink);color:#fff;font-weight:900;font-size:14px;display:flex;align-items:center;justify-content:center;margin-top:3px;}
+.rule b{font-weight:900;}
+.rule code{font-family:Menlo,monospace;font-size:11.5px;background:#f4f4f4;border-radius:4px;padding:1px 6px;}
+/* breakpoints diagram */
+.bp{display:flex;gap:0;border-radius:12px;overflow:hidden;border:1px solid var(--bd);margin:14px 0;text-align:center;font-size:11.5px;font-weight:700;}
+.bp div{padding:14px 6px;line-height:1.5;}
+.bp b{display:block;font-size:13px;font-weight:900;}
+.bp .b1{flex:2.2;background:#fdf3f8;color:var(--pink);}
+.bp .b2{flex:1.6;background:#fbf7dd;color:#8a7a10;}
+.bp .b3{flex:1.2;background:#eefaf6;color:var(--green);}
+.bp .b4{flex:1;background:#f4f4f4;color:var(--ink2);}
+/* footer */
+.gl-footer{border-top:1px solid var(--bd);padding:36px 24px 48px;text-align:center;font-size:12px;color:var(--ink3);}
+.gl-footer .band{max-width:1160px;margin:0 auto 26px;background:var(--yellow);border-radius:18px;padding:22px;font-weight:900;color:#5a4500;font-size:14px;}
+
+@media screen and (max-width:840px){
+  .wrap{flex-direction:column;gap:0;}
+  .toc{position:static;flex:none;width:100%;display:flex;flex-wrap:wrap;gap:4px;padding:16px 0 0;}
+  .toc p{width:100%;}
+  .toc a{border-left:none;border:1px solid var(--bd);border-radius:999px;padding:4px 12px;font-size:11.5px;}
+  .toc a.on{background:var(--pink);color:#fff;border-color:var(--pink);}
+  .hero h1{font-size:32px;}
+  .hero .sub{font-size:16px;}
+  .grid.c2,.grid.c3,.dd{grid-template-columns:1fr;}
+  .spec .t-page{font-size:36px;}
+  h2.sec{font-size:21px;}
+  .demo{padding:20px 14px;}
+}
+</style>
+</head>
+<body>
+
+<header class="gl-header">
+  <div class="gl-header-in">
+    <a class="gl-logo" href="#top">アートデザインラボ<small>DESIGN GUIDELINE</small></a>
+    <span class="gl-ver">v1.0 · 2026-09-16 · adl.css ver 20260915 準拠</span>
+  </div>
+</header>
+
+<div class="hero" id="top">
+  <h1>Design Guideline</h1>
+  <p class="sub">artdesignlab.jp UI / UX ガイドライン</p>
+  <p class="lead">本ガイドラインは、アートデザインラボ公式サイト（artdesignlab.jp）の本番テーマ <b>artdesignlab-studio</b> の実装CSS（adl.css / 全243回+のブラッシュアップ履歴）を分析し、現時点の最新デザインルールとして体系化したものです。サイト改修・新規ページ制作・記事装飾の際は本書を基準にしてください。</p>
+  <div class="meta">
+    <span class="pill pink">対象: artdesignlab.jp</span>
+    <span class="pill">基準CSS: adl.css?ver=20260915snsgap</span>
+    <span class="pill dark">2026-06 全面改修 〜 2026-09-15 反映済</span>
+  </div>
+</div>
+
+<div class="wrap">
+<nav class="toc" id="glToc">
+  <p>INDEX</p>
+  <a href="#principles">1. デザイン原則</a>
+  <a href="#colors">2. カラー</a>
+  <a href="#type">3. タイポグラフィ</a>
+  <a href="#layout">4. レイアウト</a>
+  <a href="#components">5. コンポーネント</a>
+  <a href="#motion">6. モーション</a>
+  <a href="#icons">7. アイコン・画像</a>
+  <a href="#editorial">8. コンテンツ規約</a>
+  <a href="#ops">9. 実装・運用ルール</a>
+  <a href="#history">10. ブラッシュアップ履歴</a>
+</nav>
+
+<main>
+
+<!-- ============ 1. principles ============ -->
+<section id="principles">
+  <h2 class="sec"><span class="en">Principles</span>1. デザイン原則</h2>
+  <p class="desc">2026年6月の全面改修（STUDIO製サイトの自管理化）以降、243回以上の継続的なブラッシュアップで収斂してきた設計思想を5原則に整理しています。</p>
+  <div class="grid c2">
+    <div class="p-card"><div class="no">01</div><h4>極太タイポグラフィで「元気」を出す</h4><p>見出しはウェイト900、本文も600。子ども向け教室の楽しさ・力強さをフォントの太さで表現する。細いウェイト（400以下）は原則使わない。</p></div>
+    <div class="p-card"><div class="no">02</div><h4>白地 × 3色ポップパレット</h4><p>背景は白（#fff / #fafafa）を基調に、ピンク・グリーン・イエローの3色を役割分担して差す。色数を増やさず、彩度の高い3色のリズムで「アート教室らしさ」を作る。</p></div>
+    <div class="p-card"><div class="no">03</div><h4>ピル（丸）の形状言語</h4><p>ボタンは完全ピル（border-radius:999px/128px）、バッジもピル、カードは16〜24px、写真は32〜48pxの大きな角丸。鋭角を避け、やわらかく親しみやすい印象で統一する。</p></div>
+    <div class="p-card"><div class="no">04</div><h4>手作り感のある遊び</h4><p>段差ピルボタンの白オフセット影、ヒストリー年表の伸びる縦ライン、TOPを跳ね回るギザギザモチーフ、まばたきするAIファシリバナーなど、既製テンプレにない一手間を必ず入れる。ただしprefers-reduced-motion対応を必須とする。</p></div>
+    <div class="p-card"><div class="no">05</div><h4>SPは「圧縮」して密度を上げる</h4><p>スマホは本文14px基準・ブロック間余白を段階的に圧縮（zz63〜73で確立）。PCのままの余白・文字サイズを持ち込まない。1280px以下はハンバーガーメニューに切り替える。</p></div>
+  </div>
+</section>
+
+<!-- ============ 2. colors ============ -->
+<section id="colors">
+  <h2 class="sec"><span class="en">Colors</span>2. カラー</h2>
+  <p class="desc">スウォッチをクリックするとHEXをコピーできます。使用頻度は本番adl.css内の出現回数に基づきます。</p>
+
+  <h3 class="sub">ブランドカラー</h3>
+  <div class="sw-grid">
+    <div class="sw" data-c="#b5226f"><div class="chip" style="background:#b5226f"><span>Aa</span></div><div class="info"><b>ADLピンク</b><code>#b5226f</code><small>プライマリ。H2見出し・本文リンク・primaryボタン・フィルタボタン</small></div></div>
+    <div class="sw" data-c="#c0136b"><div class="chip" style="background:#c0136b"><span>Aa</span></div><div class="info"><b>アートレッド</b><code>#c0136b</code><small>強調。ヒストリー年表・Voice引用符/矢印・本文内strong・目次ラベル</small></div></div>
+    <div class="sw" data-c="#2cb090"><div class="chip" style="background:#2cb090"><span>Aa</span></div><div class="info"><b>グリーン</b><code>#2cb090</code><small>H3見出し・カテゴリバッジ・表の項目名・secondaryボタン</small></div></div>
+    <div class="sw" data-c="#dac127"><div class="chip" style="background:#dac127"><span class="dk">Aa</span></div><div class="info"><b>イエロー</b><code>#dac127</code><small>ページタイトル・黄帯・黄ボックス・yellowボタン</small></div></div>
+  </div>
+
+  <h3 class="sub">イエロー派生</h3>
+  <div class="sw-grid">
+    <div class="sw" data-c="#dad33c"><div class="chip" style="background:#dad33c"><span class="dk">Aa</span></div><div class="info"><b>イエロー明</b><code>#dad33c</code><small>/about/系 H3見出し（28px W900）</small></div></div>
+    <div class="sw" data-c="#f5e96b"><div class="chip" style="background:#f5e96b"><span class="dk">Aa</span></div><div class="info"><b>目次イエロー</b><code>#f5e96b</code><small>記事の自動目次（MENU）背景</small></div></div>
+    <div class="sw" data-c="#f9f566"><div class="chip" style="background:#f9f566"><span class="dk">Aa</span></div><div class="info"><b>ネオンイエロー</b><code>#f9f566</code><small>TOPピンボールモチーフ専用</small></div></div>
+    <div class="sw" data-c="#faf8f2"><div class="chip" style="background:#faf8f2;border-bottom:1px solid #f0e9d5"><span class="dk">Aa</span></div><div class="info"><b>クリーム</b><code>#faf8f2</code><small>概要カード（ul/ol）背景。枠線は #f0e9d5</small></div></div>
+    <div class="sw" data-c="#5a4500"><div class="chip" style="background:#5a4500"><span>Aa</span></div><div class="info"><b>イエロー上テキスト</b><code>#5a4500</code><small>黄背景上の文字色（WCAGコントラスト確保・rec02）</small></div></div>
+  </div>
+
+  <h3 class="sub">ニュートラル</h3>
+  <div class="sw-grid">
+    <div class="sw" data-c="#333333"><div class="chip" style="background:#333"><span>Aa</span></div><div class="info"><b>本文</b><code>#333</code><small>基本テキスト・黒ピルボタン</small></div></div>
+    <div class="sw" data-c="#222222"><div class="chip" style="background:#222"><span>Aa</span></div><div class="info"><b>ダーク</b><code>#222</code><small>darkボタン・記事H3</small></div></div>
+    <div class="sw" data-c="#666666"><div class="chip" style="background:#666"><span>Aa</span></div><div class="info"><b>サブテキスト</b><code>#666</code><small>カード本文・補足</small></div></div>
+    <div class="sw" data-c="#999999"><div class="chip" style="background:#999"><span>Aa</span></div><div class="info"><b>注釈</b><code>#999</code><small>note・キャプション</small></div></div>
+    <div class="sw" data-c="#e3e3e3"><div class="chip" style="background:#e3e3e3"><span class="dk">Aa</span></div><div class="info"><b>ボーダー</b><code>#e3e3e3</code><small>カード枠。#eee / #ddd も同系で使用</small></div></div>
+    <div class="sw" data-c="#fafafa"><div class="chip" style="background:#fafafa;border-bottom:1px solid #eee"><span class="dk">Aa</span></div><div class="info"><b>薄グレー背景</b><code>#fafafa</code><small>セクション背景。#f8f8f8 は段差ピル影</small></div></div>
+  </div>
+
+  <div class="dd">
+    <div class="do"><b>✓ Do</b><ul><li>H2=ピンク / H3=グリーン / ページタイトル=イエローの役割を守る</li><li>黄背景上のテキストは <code>#5a4500</code> か W900の#333でコントラスト確保</li><li>強調（strong・引用符・年表）はアートレッド #c0136b</li></ul></div>
+    <div class="dont"><b>✗ Don't</b><ul><li>4色目のアクセントカラーを追加しない</li><li>黄背景に白文字（コントラスト不足）</li><li>ピンクとアートレッドを同一要素内で混在させない</li></ul></div>
+  </div>
+</section>
+
+<!-- ============ 3. typography ============ -->
+<section id="type">
+  <h2 class="sec"><span class="en">Typography</span>3. タイポグラフィ</h2>
+  <p class="desc">フォントは <b>Noto Sans JP（600 / 900）全ページ統一</b>。2026-06改修で英字見出しのLato併用を廃止し、アイコンフォントを除く全要素に <code class="src">font-family:"Noto Sans JP" !important</code> を適用しています（Google Fonts読込は900と600のみ）。</p>
+
+  <div class="spec">
+    <p class="lbl">ページタイトル — 48px / W900 / イエロー / 中央</p>
+    <div class="t-page">Class</div>
+    <div class="t-pagesub">クラス紹介</div>
+    <p class="lbl">セクション見出し H2 — 24px / W900 / ピンク</p>
+    <div class="t-h2">アートデザインラボの一日</div>
+    <p class="lbl">サブ見出し H3 — 20px / W900 / グリーン</p>
+    <div class="t-h3">まずは体験会へ</div>
+    <p class="lbl">本文 — 16px / W600 / 1.8</p>
+    <div class="t-body">子どもたちが自分のペースで手を動かし、素材とじっくり向き合う時間を大切にしています。</div>
+    <p class="lbl">注釈 — 14px / W600 / #999</p>
+    <div class="t-note">※ 開催日程は変更になる場合があります。</div>
+  </div>
+
+  <div class="tbl-scroll">
+  <table class="tbl">
+    <thead><tr><th>要素</th><th>PC</th><th>840px以下</th><th>540px以下</th><th>色 / 備考</th></tr></thead>
+    <tbody>
+      <tr><th>ページタイトル<br><code>.adl-page-title</code></th><td>48px / W900</td><td>40px</td><td>36px</td><td>#dac127・中央揃え</td></tr>
+      <tr><th>ページサブタイトル</th><td>20px / W900</td><td>18px</td><td>16px</td><td>#333・中央揃え</td></tr>
+      <tr><th>記事タイトル<br><code>.adl-report-title</code></th><td>28px / W900 / 1.4</td><td>—</td><td>22px</td><td>#333</td></tr>
+      <tr><th>H2（本文内）</th><td>24px / W900 / 1.4</td><td>—</td><td>20px</td><td>#b5226f・上余白48px</td></tr>
+      <tr><th>H3（本文内）</th><td>20px / W900 / 1.5</td><td>—</td><td>17px</td><td>記事内=#222→緑統一(zz131: h2赤/h3緑)</td></tr>
+      <tr><th>H4</th><td>18px / W700</td><td>—</td><td>15.5px</td><td>#444</td></tr>
+      <tr><th>本文</th><td>16px / W600 / 1.8</td><td>—</td><td>14〜14.5px</td><td>#333。SPは14px基準(zz65)</td></tr>
+      <tr><th>注釈 <code>.adl-note</code></th><td>14px / W600 / 1.8</td><td>—</td><td>13px</td><td>#999</td></tr>
+      <tr><th>バッジ・ピル</th><td>12px / W700</td><td>—</td><td>10〜11px</td><td>白文字（zz177で2回り縮小）</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="note">※ 行間の原則: 見出し1.2〜1.5 / 本文1.8 / クリームボックス内2.0。STUDIO基盤の <code class="src">p{line-height:1}</code> に負けるため、本文系は必ず明示指定する（zz118）。</p>
+</section>
+
+<!-- ============ 4. layout ============ -->
+<section id="layout">
+  <h2 class="sec"><span class="en">Layout</span>4. レイアウト</h2>
+
+  <h3 class="sub">コンテンツ幅の体系</h3>
+  <div class="tbl-scroll">
+  <table class="tbl">
+    <thead><tr><th>幅</th><th>用途</th></tr></thead>
+    <tbody>
+      <tr><th>600px</th><td>読み物の基準幅。/message/・/about/本文・レポート記事・/support/本文（zz113/117/157で統一）</td></tr>
+      <tr><th>880px</th><td>詳細ページ（.adl-detail-page）・ヒーロー画像のbreakout幅</td></tr>
+      <tr><th>1100〜1120px</th><td>ワイドセクション（Voiceカルーセル・交互2カラム・マップ）</td></tr>
+      <tr><th>70%（レポート）</th><td>記事本文はアイキャッチだけワイド、テキストは70%幅で中央（zz123）。SPは全幅に戻す</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="desc">狭い親からはみ出したい要素（ヒーロー画像・カルーセル）は <b>100vw breakout + 内側max-width</b> 方式（zz152で安定化）を使う。</p>
+
+  <h3 class="sub">ブレークポイント</h3>
+  <div class="bp">
+    <div class="b1"><b>PC</b>1281px〜<br>フルナビ表示</div>
+    <div class="b2"><b>Tablet</b>〜1280px<br>ハンバーガー化・STUDIO固定幅(1440px)の見切れ対策</div>
+    <div class="b3"><b>SP大</b>〜840px<br>2カラム→1カラム・タイトル40px</div>
+    <div class="b4"><b>SP</b>〜540px<br>本文14px・余白圧縮・ボタン全幅化</div>
+  </div>
+  <p class="note">※ 1280pxはメニュー切替専用（recfix46）。レイアウト分岐は840px / 540pxの2段が基本。</p>
+
+  <div class="dd">
+    <div class="do"><b>✓ Do</b><ul><li>交互2カラム（テキスト⇄画像、gap 80px）はSPで縦積み・gap 28pxに</li><li>SPのカード列は横フリック（overflow-x + scroll-snap）化</li><li>固定ヘッダー分のアンカーオフセット（scroll-margin-top）を必ず設定</li></ul></div>
+    <div class="dont"><b>✗ Don't</b><ul><li>main.adl-subpage直下に幅未指定の長い要素を置かない（min-width:autoで1200pxに膨らむ・recfix25）</li><li>SPで3カラム以上のグリッドを維持しない</li></ul></div>
+  </div>
+</section>
+
+<!-- ============ 5. components ============ -->
+<section id="components">
+  <h2 class="sec"><span class="en">Components</span>5. コンポーネント</h2>
+  <p class="desc">以下のデモは本番CSSの実値をそのまま再現しています。クラス名は記事投稿（WordPressエディタ）からもそのまま使えます。</p>
+
+  <h3 class="sub">5-1. ボタン</h3>
+  <h4 class="min">adl-btn バリアント（記事・本文用）</h4>
+  <div class="demo">
+    <a class="adl-btn" href="javascript:void(0)">Primary（既定）</a>
+    <a class="adl-btn adl-btn-secondary" href="javascript:void(0)">Secondary 緑</a>
+    <a class="adl-btn adl-btn-yellow" href="javascript:void(0)">Yellow 黄</a>
+    <a class="adl-btn adl-btn-outline" href="javascript:void(0)">Outline</a>
+    <a class="adl-btn adl-btn-outline-green" href="javascript:void(0)">Outline緑</a>
+    <a class="adl-btn adl-btn-dark" href="javascript:void(0)">Dark</a>
+    <a class="adl-btn adl-btn-light" href="javascript:void(0)">Light</a>
+    <br>
+    <a class="adl-btn adl-btn-lg" href="javascript:void(0)">Large 18/44px</a>
+    <a class="adl-btn adl-btn-sm" href="javascript:void(0)">Small 8/20px</a>
+  </div>
+  <pre class="code">&lt;a class="adl-btn adl-btn-primary"&gt;ラベル&lt;/a&gt;
+&lt;!-- modifier: adl-btn-secondary / -yellow / -outline / -outline-green / -dark / -light
+     サイズ: adl-btn-lg / adl-btn-sm / adl-btn-block（全幅・max 520px）
+     既定: padding 14px 32px / radius 999px / 14px W700 / hover: opacity.88 + 1px浮上
+     SP(540px以下)は自動で全幅ブロック化。記事内ボタンは中央寄せ統一(zz180/201) --&gt;</pre>
+
+  <h4 class="min">段差ピル（CTAボタン・サイトの看板スタイル）</h4>
+  <div class="demo">
+    <a class="adl-detail-btn" href="javascript:void(0)">体験会に申し込む</a>
+    <button class="adl-submit">送信する</button>
+  </div>
+  <pre class="code">/* 左: adl-detail-btn — ::afterで白い座布団を左下(-2px,+6px)にずらす段差ピル */
+.adl-detail-btn{background:#333;color:#fff;font-weight:900;font-size:20px;
+  padding:16px 64px;border-radius:128px;border:2px solid #333;}
+.adl-detail-btn::after{content:"";position:absolute;z-index:-1;left:-2px;top:6px;
+  width:calc(100% + 4px);height:calc(100% + 4px);
+  background:#f8f8f8;border:2px solid #333;border-radius:128px;}
+
+/* 右: フォーム送信ボタン — box-shadow 2連で同じ段差を表現（contact/CF7系統一） */
+box-shadow:-2px 6px 0 0 #f8f8f8, -2px 6px 0 2px #333;
+/* hover: 白背景+黒文字反転（zz25共通ルール） */</pre>
+
+  <h4 class="min">カテゴリーバッジ（ピル）</h4>
+  <div class="demo">
+    <span class="pill">コドモデパート</span>
+    <span class="pill">レポート</span>
+    <span class="pill pink">フィルタ選択中</span>
+    <span class="pill dark">体験募集中</span>
+  </div>
+  <pre class="code">/* News/Report/素材カード共通: 緑#2cb090+白 / radius 999px / 12px W700 / padding 4px 14px (zz126)
+   カード内は段階的に縮小(zz173→175→177)。フィルタボタンはピンク#b5226f。
+   件数バッジは「半角スペース+グレー数字」形式(zz172) */</pre>
+
+  <h3 class="sub">5-2. カード・ボックス</h3>
+  <div class="demo left">
+    <div class="grid c2" style="margin:0">
+      <div class="adl-card"><b style="font-weight:900">白カード .adl-card</b><p style="font-size:13px;color:#666;margin-top:6px">radius 16px / padding 28px 32px。一覧カードは13px #666本文＋緑バッジ＋ホバーでアイキャッチzoom（2026-09-08）。</p></div>
+      <div class="adl-yellow"><div class="adl-card"><b style="font-weight:900">黄ボックス .adl-yellow</b><p style="font-size:13px;color:#666;margin-top:6px">radius 24px / padding 28px。中に白カードを重ねる2層構造が定番。</p></div></div>
+    </div>
+    <ul class="adl-cream" style="margin-top:16px">
+      <li>クリームボックス（概要カード）— 記事のul/olを自動でこの見た目に（zz179）</li>
+      <li>背景 #faf8f2 / 枠 #f0e9d5 / radius 8px / 14px / 行間2.0</li>
+      <li>編集後記（インタビュー）にも同スタイルを流用（zz235）</li>
+    </ul>
+    <div style="text-align:center;margin-top:16px">
+      <div class="adl-voice-card"><p>Voiceカード（保護者様の声）。左上にGeorgia体の引用符“をアートレッドで置く。radius 18px・枠1.5px。カルーセルはPC3〜4枚→SP1枚。</p></div>
+    </div>
+  </div>
+
+  <h3 class="sub">5-3. 記事の自動目次（MENU）</h3>
+  <div class="demo">
+    <div class="adl-toc">
+      <p class="adl-toc-label">MENU</p>
+      <ol>
+        <li>会場の様子</li>
+        <li>子どもたちの制作風景</li>
+        <li class="h3">午前の部</li>
+        <li class="h3">午後の部</li>
+        <li>作品集</li>
+      </ol>
+    </div>
+  </div>
+  <pre class="code">/* h2から自動生成（zz120）。背景#f5e96b / radius 8px / ラベル「MENU」#c0136b
+   h2=連番、h3=インデント+└マーク（zz135）。項目間は rgba(0,0,0,.15) の区切り線 */</pre>
+
+  <h3 class="sub">5-4. ナビゲーション</h3>
+  <div class="tbl-scroll">
+  <table class="tbl">
+    <thead><tr><th>要素</th><th>最新仕様（2026-09-15時点）</th></tr></thead>
+    <tbody>
+      <tr><th>ヘッダー（PC）</th><td>ロゴ＋キッズデザイン賞マーク＋ナビ＋右上ボタン2連（Contact=黄グラデアニメ / Support=赤帯系）。1280px以下はナビ非表示→ハンバーガー</td></tr>
+      <tr><th>ハンバーガー</th><td>PC版は左拡張・クラス紹介は全幅1カラム＋その下3カラム（zz237）。SP版は「私たちについて」アコーディオン＋イベント系/お問合せ系2カラム（zz240）。下部にSNS横並び・最新レポートカード・NLボタン（zz242/243）。募集バッジをメニュー行に併記</td></tr>
+      <tr><th>フッター</th><td>4〜5カラムナビ＋infoバー（ロゴ/住所/NL）独立（zz110-111/213）。黄帯Contactブロック（写真背景+白ボックス）→ legal行（13px・© baby toi 右端）</td></tr>
+      <tr><th>パンくず</th><td>全ページ共通。H1バー内に配置しクリック可能（zz180・2026-09-12）。SEO用H1はスクリーンリーダーのみ可視（zz234）</td></tr>
+      <tr><th>フローティング</th><td>右下LINEバナー（角丸22px）。フォームページ（/contact/・/support/register/）では非表示（zz166）。fade対象から除外し常時表示（zz178）</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3 class="sub">5-5. フォーム</h3>
+  <p class="desc">Contact（CF7）・素材パートナー登録・体験会ウェイティングの3系統は<b>同一スタイルに統一</b>（zz18 → register/trial-waiting統一）。</p>
+  <ul class="adl-cream">
+    <li>入力欄: 白背景・1px枠・radius 8px系。select/checkbox/radioも自前スタイル</li>
+    <li>セクション見出し（legend）は adl-form-section 風の帯</li>
+    <li>必須/任意バッジ: 小型ピル。labelのflex子で伸びる問題はwidth:fit-content対策済（zz144）</li>
+    <li>送信=黒段差ピル（上記5-1）・戻る=グレー。送信ボタンは中央固定（spinner押し出し対策 zz218）</li>
+    <li>実装は static/*.html のフォーム + functions.php の REST ルート（adl/v1）を必ずセットで</li>
+  </ul>
+</section>
+
+<!-- ============ 6. motion ============ -->
+<section id="motion">
+  <h2 class="sec"><span class="en">Motion</span>6. モーション</h2>
+  <p class="desc">全モーションに <code class="src">@media(prefers-reduced-motion:reduce)</code> の無効化を必ず併記する（zz95で全サイト共通化）。</p>
+
+  <h4 class="min">スクロールフェードイン（サイト共通）</h4>
+  <div class="demo">
+    <div class="fade-box" id="fadeDemo">.adl-fade-init → .adl-fade-on</div>
+    <br><button class="adl-btn adl-btn-sm adl-btn-outline" onclick="replayFade()" style="margin-top:12px">もう一度再生</button>
+  </div>
+  <pre class="code">.adl-fade-init{opacity:0;transform:translateY(28px);
+  transition:opacity .9s cubic-bezier(.25,.46,.45,.94),transform .9s 同値;}
+.adl-fade-init.adl-fade-on{opacity:1;transform:none;}
+/* 除外規約: 記事ヘッダー(zz130)・関連記事/戻るボタン/LINEバナー(zz178)はfade対象外。
+   IntersectionObserver不発時の最終保険CSSあり */</pre>
+
+  <h4 class="min">黄グラデ見出しアニメ（.adl-ygrad）</h4>
+  <div class="demo"><span style="font-size:30px;font-weight:900;background-image:linear-gradient(100deg,#dac127 0%,#f6e96b 25%,#e8a90f 50%,#f6e96b 75%,#dac127 100%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:ygrad 5s linear infinite;">Event &amp; Report</span></div>
+  <pre class="code">background:linear-gradient(100deg,#dac127,#f6e96b 25%,#e8a90f 50%,#f6e96b 75%,#dac127);
+background-size:250% 100%; background-clip:text; animation: 5s linear infinite;</pre>
+
+  <h4 class="min">CSSマーキーカルーセル（ロゴ・写真の無限流し）</h4>
+  <div class="demo">
+    <div class="mq"><div class="mq-track" id="mqTrack">
+      <div class="mq-item">LOGO</div><div class="mq-item">PHOTO</div><div class="mq-item">LOGO</div><div class="mq-item">PHOTO</div><div class="mq-item">LOGO</div><div class="mq-item">PHOTO</div>
+    </div></div>
+  </div>
+  <pre class="code">/* 規約: STUDIO製JSカルーセルは使わず、トラック2周複製 + translateX(-50%) 無限ループの
+   CSSマーキーで作り直す（rebuild_rk_carousels.py方式）。
+   素材パートナーは2段独立トラックを速度差でずらす（zzLP2ROWSPD 2026-08-25） */
+@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}</pre>
+
+  <h4 class="min">その他の登録モーション</h4>
+  <div class="demo left" style="text-align:left">
+    <div class="hist-demo">
+      <div class="hist-year">2018</div>
+      <div class="hist-txt"><b>ヒストリー縦ライン</b>：年号の下に3px幅のアートレッドのラインが scaleY(0→1) で1.1秒かけて伸びる（zz82）。</div>
+    </div>
+    <div class="pin-wrap" style="margin-top:14px">
+      <div class="pin"><svg viewBox="0 0 100 100"><polygon fill="#f9f566" points="50,0 58,32 90,15 68,42 100,50 68,58 90,85 58,68 50,100 42,68 10,85 32,58 0,50 32,42 10,15 42,32"/></svg></div>
+      <p style="position:relative;font-size:12px;color:#999;padding:12px 16px;">TOPピンボールモチーフ：ネオンイエローのギザギザ2層（バースト+逆回転）が画面の角々を跳ね回る。opacity+multiplyで最背面（zz183〜191）。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 7. icons ============ -->
+<section id="icons">
+  <h2 class="sec"><span class="en">Icons &amp; Images</span>7. アイコン・画像</h2>
+
+  <h3 class="sub">アイコンは SVGマスク方式（adl-icons.css）</h3>
+  <div class="demo">
+    <span class="adl-icon ic-mail" style="font-size:34px;color:#b5226f"></span>
+    <span class="adl-icon ic-heart" style="font-size:34px;color:#c0136b;margin:0 14px"></span>
+    <span class="adl-icon ic-add" style="font-size:34px;color:#2cb090"></span>
+  </div>
+  <pre class="code">/* Material Icons + FontAwesome の woff2 計220KB を廃止し、
+   data URL の SVG mask（合計5KB未満）へ置換（2026-06-22）。
+   currentColorで着色でき、旧マークアップ(.material-icons/.fa-*)も互換シムで動く */
+&lt;span class="adl-icon adl-icon-mail"&gt;&lt;/span&gt;</pre>
+  <div class="dd">
+    <div class="do"><b>✓ Do</b><ul><li>新規アイコンは adl-icons.css にSVGマスクで追加</li><li>サイズはfont-size、色はcolorで制御</li></ul></div>
+    <div class="dont"><b>✗ Don't</b><ul><li>アイコンフォントのwoff2を再導入しない</li><li>UIアイコンに絵文字を使わない（関連アプリ共通ルール。メッセージ本文の絵文字はOK）</li></ul></div>
+  </div>
+
+  <h3 class="sub">画像・角丸の体系</h3>
+  <div class="tbl-scroll">
+  <table class="tbl">
+    <thead><tr><th>要素</th><th>角丸</th></tr></thead>
+    <tbody>
+      <tr><th>小ボックス（目次・クリーム・pre）</th><td>8px</td></tr>
+      <tr><th>カード</th><td>16〜18px</td></tr>
+      <tr><th>黄ボックス・帯</th><td>24px</td></tr>
+      <tr><th>コンテンツ写真</th><td>32px（SP）〜48px（PC）</td></tr>
+      <tr><th>LINEフローティングバナー</th><td>22px（画像自体の角丸に一致させる）</td></tr>
+      <tr><th>ボタン・バッジ</th><td>完全ピル（999px / 128px）</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="desc">写真はwebp優先・ヒーローは16:9固定（recfix37）。記事内画像は幅100%強制でコンテンツ幅の突き抜けを防ぐ（zz119/167/207）。アイキャッチは「会場バナー入り全景」など場所の特別感が伝わるカットを選ぶ。</p>
+</section>
+
+<!-- ============ 8. editorial ============ -->
+<section id="editorial">
+  <h2 class="sec"><span class="en">Editorial</span>8. コンテンツ規約（レポート記事）</h2>
+  <div class="rule"><div class="no">1</div><div><b>タイトルは【レポート】接頭辞で統一。</b>＜＞〈〉は使わず【】。「フォトレポート」「動画レポート」も「レポート」に統一（前編/後編は【前編レポート】のように語を保持）。</div></div>
+  <div class="rule"><div class="no">2</div><div><b>カテゴリ「イベント」は告知・募集記事のみ。</b>レポート本体には付けない（レポート=実施報告 / イベント=告知の意味分離。2026-08-21整理）。</div></div>
+  <div class="rule"><div class="no">3</div><div><b>写真構成の標準形（post 628パターン）:</b> 各H2セクション直後に <code>[adl_photo_album]</code> グリッド7枚＋キャプション → 記事末尾にH2「作品集」＋<code>[adl_photo_slider caption="0" aspect="3-2"]</code>を2分割（作品クローズアップのみ）→ 最後に集合写真1カット。</div></div>
+  <div class="rule"><div class="no">4</div><div><b>類似写真の連続NG。</b>連続コマ・同構図・同じ子どもの並びは避け、グリッド7枚は別々の子どもで構成。公開前にコンタクトシートで通し確認する。</div></div>
+  <div class="rule"><div class="no">5</div><div><b>記事本文の装飾は登録済みコンポーネントのみ。</b>ボタン=adl-btn系（中央寄せ）、リスト=クリームボックス自動適用、目次=h2/h3から自動生成。インラインstyleの新規追加はしない。</div></div>
+</section>
+
+<!-- ============ 9. ops ============ -->
+<section id="ops">
+  <h2 class="sec"><span class="en">Operations</span>9. 実装・運用ルール</h2>
+  <p class="desc">artdesignlab.jp は heteml 上の WordPress（テーマ artdesignlab-studio）を<b>本番直接編集</b>で運用しています。デザイン変更時は以下を厳守。</p>
+  <div class="rule"><div class="no">1</div><div><b>主要ページの実体は <code>static/&lt;slug&gt;.html</code>。</b>DB（投稿本文）ではなくテーマ内static HTMLを直接編集する。フッター等の共通変更はstatic/*.html一括置換で全ページに効く。</div></div>
+  <div class="rule"><div class="no">2</div><div><b>CSSは adl.css への追記方式。</b>末尾に <code>/* === zzNNN: 目的 (日付) === */</code> コメント付きで追加し、既存ルールの書き換えは避ける（CSSファイル自体が変更履歴を兼ねる）。読込時は <code>?ver=YYYYMMDD****</code> のキャッシュバスターを必ず更新。</div></div>
+  <div class="rule"><div class="no">3</div><div><b>!important は「STUDIOインラインに勝つため」の必要悪。</b>STUDIO由来の <code>data-s-*</code> インラインスタイルとリセット（p{line-height:1}等）が後方で勝つため、上書きには!importantか特異性の高いセレクタを使う。</div></div>
+    <div class="rule"><div class="no">4</div><div><b>PHP編集は php -l 通過必須・変更前に .bak_YYYYMMDD を同階層に残す。</b>heteml のCLIは <code>/usr/local/php/8.3/bin/php</code>。wp-cli不可のためDB操作はmysql UNHEX方式。</div></div>
+  <div class="rule"><div class="no">5</div><div><b>フォーム追加は HTML + REST の2点セット。</b>static側のfetch先だけ書いてfunctions.php側の register_rest_route（adl/v1）を忘れない。</div></div>
+  <div class="rule"><div class="no">6</div><div><b>完成報告の前に実機検証。</b>公開URLをキャッシュバスター付きで開き、主要動線をPuppeteer/Playwrightで実クリック確認。変更はローカル案件フォルダの CHANGELOG.md に記録する。</div></div>
+</section>
+
+<!-- ============ 10. history ============ -->
+<section id="history">
+  <h2 class="sec"><span class="en">History</span>10. ブラッシュアップ履歴（年表）</h2>
+  <p class="desc">adl.css に刻まれた全パッチ（zz1〜zz243＋日付付き修正）の要約。現行デザインが「なぜこうなっているか」の根拠です。</p>
+  <div class="tl">
+    <div class="tl-item major"><div class="tl-date">2026-05</div><h4>STUDIOサイトのHTMLクローン取得</h4><p>WordPress移行計画の起点（artdesignlab-clone）。</p></div>
+    <div class="tl-item major"><div class="tl-date">2026-06-11 〜 06-12</div><h4>全面改修ラッシュ <span class="zz">zz1〜zz34</span></h4><p>WP自管理テーマ化と同時に大規模リファイン。ボタン統一（白オフセット影）・フッター黄帯Contact・カテゴリバッジ＋フィルタ・ハンバーガーメニュー新設・ヘッダー右上ボタン入替・ニュースレター導線・キッズデザイン賞ロゴ掲出。</p></div>
+    <div class="tl-item"><div class="tl-date">2026-06-12 〜 06-18</div><h4>サブページ体裁の統一 <span class="zz">zz35〜zz76</span></h4><p>素材パートナーv2・ポリシー/メッセージ/aboutページ整備・SP圧縮の徹底（14px基準・余白段階圧縮 zz63〜73）・会社ヒストリーブロック（縦ライン年表）。</p></div>
+    <div class="tl-item"><div class="tl-date">2026-06-19</div><h4>フォトギャラリー＋ライトボックス <span class="zz">gal01〜gal30</span></h4><p>記事末尾ギャラリー・専用ページ・SPサイズ調整・TOP Newsの縦書きラベル化。</p></div>
+    <div class="tl-item"><div class="tl-date">2026-06-22</div><h4>アイコン自前化（adl-icons.css）</h4><p>Material/FontAwesome woff2 計220KB → SVGマスク5KB未満へ。</p></div>
+    <div class="tl-item major"><div class="tl-date">2026-06-24 〜 06-25</div><h4>パフォーマンス自管理化 <span class="zz">recfix25〜47</span></h4><p>STUDIO Nuxt基盤CSSを取り込みadl.cssへ一本化（外部依存排除）・LCP改善・タブレット1280px対応・SP溢れの根本対応。素材レコメンド診断UI（adl-rec）＋a11y仕上げ（focus-visible/コントラスト）。</p></div>
+    <div class="tl-item"><div class="tl-date">2026-06下旬 〜 07</div><h4>記事テンプレート確立 <span class="zz">zz116〜zz135</span></h4><p>レポート記事の基本形（600px幅・自動目次・関連記事3カラム・カテゴリpill緑統一・h2赤/h3緑・ボタン7バリアント）。Voiceカルーセル・classイントロ・ピンボールモチーフ。</p></div>
+    <div class="tl-item"><div class="tl-date">2026-07 〜 08</div><h4>support / 素材パートナー拡充 <span class="zz">zz136〜zz181</span></h4><p>登録フォーム（必須バッジ・流れステップ・NEXTボックス）・掲載メディア実績・ロゴカルーセルのCSSマーキー化（zzLPRESET 7/23、2段速度差 8/25）。</p></div>
+    <div class="tl-item"><div class="tl-date">2026-08 〜 09上旬</div><h4>探索性の強化 <span class="zz">zz192〜zz234</span></h4><p>Event&amp;Report検索・404/検索結果ページ・QAフィルタ/検索/アコーディオン・100種類の素材ページ・体験会ウェイティングフロー・インタビューセクション＋誘導バナー。</p></div>
+    <div class="tl-item major"><div class="tl-date">2026-09-08 〜 09-15</div><h4>直近の最新化 <span class="zz">zz235〜zz243</span></h4><p>カードアイキャッチzoom（9/8）・クリック可能パンくず＋SEO用H1（9/12）・ハンバーガー全面再構成（PC左拡張3カラム/SPアコーディオン化・最新レポートカード・SNS可視化・NLボタン2段 9/15）。基準ver=20260915snsgap。</p></div>
+  </div>
+  <p class="note">※ 個別パッチの完全な履歴は本番 <span class="src"><code>wp-content/themes/artdesignlab-studio/assets/css/adl.css</code></span> のコメントを参照（ファイル自体が変更ログ）。</p>
+</section>
+
+</main>
+</div>
+
+<footer class="gl-footer">
+  <div class="band">このガイドラインは adl.css（ver 20260915snsgap・6,304行）の実装分析から生成 — 更新時は履歴セクションに追記してください</div>
+  <p>ART DESIGN LAB Design Guideline v1.0 · 2026-09-16 · 株式会社レイン（内部資料）</p>
+</footer>
+
+<div class="copied" id="copied">コピーしました</div>
+
+<script>
+// color copy
+document.querySelectorAll('.sw').forEach(el=>{
+  el.addEventListener('click',()=>{
+    const c=el.dataset.c;
+    navigator.clipboard&&navigator.clipboard.writeText(c).then(()=>{
+      const t=document.getElementById('copied');
+      t.textContent=c+' をコピーしました';t.classList.add('on');
+      clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove('on'),1400);
+    }).catch(()=>{});
+  });
+});
+// toc current highlight
+const links=[...document.querySelectorAll('#glToc a')];
+const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+const io=new IntersectionObserver(es=>{
+  es.forEach(e=>{if(e.isIntersecting){
+    links.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id));
+  }});
+},{rootMargin:'-15% 0px -70% 0px'});
+secs.forEach(s=>s&&io.observe(s));
+// fade demo
+function replayFade(){
+  const b=document.getElementById('fadeDemo');
+  b.classList.remove('on');void b.offsetWidth;
+  setTimeout(()=>b.classList.add('on'),60);
+}
+const fio=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');fio.unobserve(e.target);}})});
+fio.observe(document.getElementById('fadeDemo'));
+// marquee duplicate
+const mt=document.getElementById('mqTrack');mt.innerHTML+=mt.innerHTML;
+</script>
+</body>
+</html>
